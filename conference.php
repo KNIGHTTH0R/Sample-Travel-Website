@@ -568,6 +568,20 @@ foreach ($radioVals as $key => $field) {
       </form>
     </div>
     <?php require_once 'footer.php'; ?>
+    <script>
+    var autocomplete;
+    var countryRestrict = { 'country': 'in' };
+
+    function initAuto() {
+      autocomplete = new google.maps.places.Autocomplete(
+        /** @type {!HTMLInputElement} */
+        (document.getElementById('autocomplete')), {
+          types: ['geocode'],
+          componentRestrictions: countryRestrict
+        });
+    }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=<api_key>&libraries=places&callback=initAuto" async defer></script>
   </body>
 
   </html>
